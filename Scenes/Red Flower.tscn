@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://5m3td8tlhl3r"]
+
+[ext_resource type="Texture2D" uid="uid://f31mcgmiwuke" path="res://Assests/Sprites/Pick up parts.png" id="1_0vwjc"]
+[ext_resource type="Script" uid="uid://h5uid8tl1vuf" path="res://Scripts/red_flower.gd" id="1_eusul"]
+[ext_resource type="Resource" uid="uid://brsgmj6xd48uy" path="res://Assests/Inventory/Items/RedFlower.tres" id="2_uyd7r"]
+[ext_resource type="PackedScene" uid="uid://d0yvoueecp70e" path="res://Assests/Interactable and Componets/interactable.tscn" id="3_6jro5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsuno"]
+atlas = ExtResource("1_0vwjc")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7sa7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsuno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyd7r"]
+
+[node name="Red Flower" type="Area2D"]
+script = ExtResource("1_eusul")
+item = ExtResource("2_uyd7r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l7sa7")
+
+[node name="Interactable" parent="." instance=ExtResource("3_6jro5")]
+interact_name = "Pick Flower"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_uyd7r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
