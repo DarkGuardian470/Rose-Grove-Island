@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cqkwn546julcr" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://juo2rjmo4wft" path="res://Assests/Sprites/Tile Sets.png" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://5m3td8tlhl3r" path="res://Scenes/Red Flower.tscn" id="3_wrm1d"]
-[ext_resource type="Texture2D" uid="uid://bia0xd6a185m0" path="res://icon.svg" id="4_3dryh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qxrlw"]
 distance = -66.0
@@ -136,8 +135,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3dryh")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayypw"]
-
 [node name="Game" type="Node2D" unique_id=1136426072]
 
 [node name="World Borders" type="Node" parent="." unique_id=1525000728]
@@ -207,11 +204,3 @@ limit_left = -418
 limit_top = -352
 limit_right = 416
 limit_bottom = 352
-
-[node name="Sprite2D [PH]" type="Sprite2D" parent="Player" unique_id=1354601954]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_3dryh")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=1350512559]
-visible = false
-shape = SubResource("RectangleShape2D_ayypw")

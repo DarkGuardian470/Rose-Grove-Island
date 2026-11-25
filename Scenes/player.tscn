@@ -1,11 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://cqkwn546julcr"]
+[gd_scene format=3 uid="uid://cqkwn546julcr"]
 
-[ext_resource type="Script" uid="uid://binkxrh03pymp" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://binkxrh03pymp" path="res://Scripts/Player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c7n0t5k53kbxu" path="res://Assests/Sprites/Alpha Sprite base.png" id="1_v0iea"]
-[ext_resource type="Resource" uid="uid://b08ppx2fqyukv" path="res://Assests/Inventory/playerinv.tres" id="2_fkybt"]
-[ext_resource type="PackedScene" uid="uid://ct2esx15y8b2d" path="res://Assests/Interactable and Componets/interacting.tscn" id="3_6t5aa"]
+[ext_resource type="Resource" uid="uid://b08ppx2fqyukv" path="res://Assests/Inventory/PlayerInventory.tres" id="2_fkybt"]
+[ext_resource type="PackedScene" uid="uid://ct2esx15y8b2d" path="res://Assests/Interactable and Componets/Interacting.tscn" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cm3ct5h8pss6f" path="res://Assests/Sprites/Alpha Sprite base Idle Test.png" id="4_x3wgy"]
-[ext_resource type="PackedScene" uid="uid://c3n12ku3d2ydu" path="res://Assests/Inventory/inv_ui.tscn" id="5_x3wgy"]
+[ext_resource type="PackedScene" uid="uid://c3n12ku3d2ydu" path="res://Assests/Inventory/InventoryUI.tscn" id="5_x3wgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -133,8 +133,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l6n3p")
 }],
-"loop": true,
-"name": &"Idle down",
+"loop": 1,
+"name": &"IDLE_DOWN",
 "speed": 5.0
 }, {
 "frames": [{
@@ -153,8 +153,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ijsl")
 }],
-"loop": true,
-"name": &"Idle side",
+"loop": 1,
+"name": &"IDLE_RIGHT",
 "speed": 5.0
 }, {
 "frames": [{
@@ -173,8 +173,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y6uwr")
 }],
-"loop": true,
-"name": &"Idle up",
+"loop": 1,
+"name": &"IDLE_UP",
 "speed": 5.0
 }, {
 "frames": [{
@@ -190,8 +190,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x3wgy")
 }],
-"loop": true,
-"name": &"Moving down",
+"loop": 1,
+"name": &"MOVE_DOWN",
 "speed": 10.0
 }, {
 "frames": [{
@@ -207,8 +207,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pu2lt")
 }],
-"loop": true,
-"name": &"Moving side",
+"loop": 1,
+"name": &"MOVE_RIGHT",
 "speed": 10.0
 }, {
 "frames": [{
@@ -224,32 +224,33 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fd4e3")
 }],
-"loop": true,
-"name": &"Moving up",
+"loop": 1,
+"name": &"MOVE_UP",
 "speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=534296160]
 z_index = 10
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_cvnsp")
 inv = ExtResource("2_fkybt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1075784678]
 sprite_frames = SubResource("SpriteFrames_f60y1")
-animation = &"Idle down"
-frame_progress = 0.740294
+animation = &"IDLE_DOWN"
 
-[node name="Interacting" parent="AnimatedSprite2D" instance=ExtResource("3_6t5aa")]
+[node name="Interacting" parent="AnimatedSprite2D" unique_id=2136302088 instance=ExtResource("3_6t5aa")]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1233793251]
+visible = false
 shape = SubResource("CircleShape2D_3smsa")
 
-[node name="Inv_UI" parent="." instance=ExtResource("5_x3wgy")]
+[node name="InventoryUI" parent="." unique_id=1818840270 instance=ExtResource("5_x3wgy")]
 visible = false
 offset_left = -44.0
 offset_top = -34.0

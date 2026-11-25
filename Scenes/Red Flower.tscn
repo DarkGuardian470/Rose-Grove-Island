@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://5m3td8tlhl3r"]
+[gd_scene format=3 uid="uid://5m3td8tlhl3r"]
 
 [ext_resource type="Texture2D" uid="uid://f31mcgmiwuke" path="res://Assests/Sprites/Pick up parts.png" id="1_0vwjc"]
-[ext_resource type="Script" uid="uid://h5uid8tl1vuf" path="res://Scripts/red_flower.gd" id="1_eusul"]
+[ext_resource type="Script" uid="uid://h5uid8tl1vuf" path="res://Scripts/RedFlower.gd" id="1_eusul"]
 [ext_resource type="Resource" uid="uid://brsgmj6xd48uy" path="res://Assests/Inventory/Items/RedFlower.tres" id="2_uyd7r"]
-[ext_resource type="PackedScene" uid="uid://d0yvoueecp70e" path="res://Assests/Interactable and Componets/interactable.tscn" id="3_6jro5"]
+[ext_resource type="PackedScene" uid="uid://d0yvoueecp70e" path="res://Assests/Interactable and Componets/Interactable.tscn" id="3_6jro5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsuno"]
 atlas = ExtResource("1_0vwjc")
